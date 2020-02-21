@@ -1,3 +1,4 @@
+// declarative rendering
 const app = new Vue ({
     el: '#app',
     data: {
@@ -14,6 +15,7 @@ const app2 = new Vue ({
     }
 })
 
+// conditionals and loops
 const app3 = new Vue ({
     el: '#app-3',
     data: {
@@ -36,6 +38,7 @@ const app4 = new Vue ({
 
 app4.todos.push({ text: 'New item' })
 
+// handling user input
 const app5 = new Vue ({
     el: '#app-5',
     data: {
@@ -52,6 +55,23 @@ const app6 = new Vue ({
     el: '#app-6',
     data: {
         message: 'Hello Vue!'
+    }
+})
+
+// composing with components
+Vue.component('todo-item', {
+    props: ['todo'],
+    template: '<li> {{ todo.text }} </li>'
+})
+
+const app7 = new Vue ({
+    el: '#app-7',
+    data: {
+        groceryList: [
+            { id: 0, text: 'Vegetables' },
+            { id: 1, text: 'Cheese' },
+            { id: 2, text: 'Whatever else humans eat' }
+        ]
     }
 })
 
